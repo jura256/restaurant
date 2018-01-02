@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Menu;
+use App\Dish;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreMenuRequest;
 
-class MenuController extends Controller
+class DishController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
-        return view('admin.menu.index', compact('menus'));
+      $dishes = Dish::all();
+      return view('admin.dish.index', compact('dishes'));
     }
 
     /**
@@ -26,8 +25,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Menu::class);
-        return view('admin.menu.create');
+        //
     }
 
     /**
@@ -36,58 +34,53 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMenuRequest $request)
+    public function store(Request $request)
     {
-        Menu::create($request->all());
-        return redirect('admin/menu');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Menu  $menu
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function show(Menu $menu)
+    public function show(Dish $dish)
     {
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Menu  $menu
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function edit(Menu $menu)
+    public function edit(Dish $dish)
     {
-        $this->authorize('update', Menu::class);
-        return view('admin.menu.edit', ['menu'=>$menu]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Menu  $menu
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreMenuRequest $request, Menu $menu)
+    public function update(Request $request, Dish $dish)
     {
-        $menu->update($request->all());
-        return redirect('admin/menu')->with(['message'=>'Sekmingai issaugota']);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Menu  $menu
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Menu $menu)
+    public function destroy(Dish $dish)
     {
-        $this->authorize('delete', Menu::class);
-        $menu->delete();
-        return redirect('admin/menu');
+        //
     }
 }
