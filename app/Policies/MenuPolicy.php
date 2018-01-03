@@ -52,8 +52,8 @@ class MenuPolicy
      * @param  \App\Menu  $menu
      * @return mixed
      */
-    public function delete(User $user, Menu $menu)
+    public function delete(User $user)
     {
-        //
+      return $user->admin == 1;
     }
 }
